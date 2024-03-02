@@ -3,17 +3,13 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../firebase.js';
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from '../firebase.js';
-import { useCookies } from 'react-cookie';
 import { RxAvatar } from "react-icons/rx";
 import Cookies from 'js-cookie';
 
 const ProfilePage = () => {
 
-    const [cookies, setCookies, removeCookie] = useCookies(["access_token"]);
-
     const profileRef = collection(db, "displayProfiles");
 
-    
 
     const [dataAH, setDataAH] = useState();
     const [dataEP, setDataEP] = useState();
@@ -49,11 +45,10 @@ const ProfilePage = () => {
 
     // Функция выхода из учетной записи
     const logOut = async () => {
-        Cookies.remove('access_token')
-        removeCookie('access_token')
-        localStorage.clear();
         try {
             await signOut(auth).then(() => {
+              Cookies.remove('access_token')
+              localStorage.clear()
               window.location.reload()  
             })   
         } catch (err) {
