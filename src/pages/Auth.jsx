@@ -85,12 +85,12 @@ export const Auth = () => {
 
 
 
-    // ХАХАХХАХАХАХАХАХ Юз еффект
-    useEffect(() => {
-        if (!cookies.access_token) {
-            myRef1.current.focus(); 
-         } 
-    }, []);
+    // // ХАХАХХАХАХАХАХАХ Юз еффект
+    // useEffect(() => {
+    //     if (!cookies.access_token) {
+    //         myRef1.current.focus(); 
+    //      } 
+    // }, []);
 
 
 
@@ -135,9 +135,9 @@ export const Auth = () => {
                 </div>
                 
                 <form className='auth-cont2'>
-                    <input ref={myRef1} placeholder='Email' className='dat-inp' type='text' onChange={(e) => setEmail(e.target.value)} />
+                    <input  placeholder='Email' className='dat-inp' type='text' onChange={(e) => setEmail(e.target.value)} />
                     <div className='input-pass-cont'>
-                        <input placeholder='Password'  className='dat-inp' type={!showPass ? ('password') : ('text')}  /> 
+                        <input placeholder='Password'  className='dat-inp' type={!showPass ? ('password') : ('text')} onChange={(e) => setPassword(e.target.value)}></input>
                         <div className='show-hide-pass-cont' onClick={() => setShowPass(!showPass)}>
                             {!showPass ? (
                                 <FaEye size={20}/>  
