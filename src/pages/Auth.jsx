@@ -135,9 +135,9 @@ export const Auth = () => {
                 </div>
                 
                 <form className='auth-cont2'>
-                    <input ref={myRef1} placeholder='Email' className='dat-inp' type='email' onChange={(e) => setEmail(e.target.value)} />
+                    <input ref={myRef1} placeholder='Email' className='dat-inp' type='text' onChange={(e) => setEmail(e.target.value)} />
                     <div className='input-pass-cont'>
-                        <input placeholder='Password'  className='dat-inp' type={!showPass ? ('password') : ('text')} onChange={(e) => setPassword(e.target.value)} /> 
+                        <input placeholder='Password'  className='dat-inp' type={!showPass ? ('password') : ('text')}  /> 
                         <div className='show-hide-pass-cont' onClick={() => setShowPass(!showPass)}>
                             {!showPass ? (
                                 <FaEye size={20}/>  
@@ -147,9 +147,6 @@ export const Auth = () => {
                             
                         </div>
                     </div>
-                    
-                    
-                    
                     <div className='help-txt-container'>
                         <p style={{ color: 'black', textAlign: 'center', margin: '0', fontSize: '14px' }}>Don't have an account?</p>
                         <Link to='/register' className='link-btn-wr' >Register</Link> 
