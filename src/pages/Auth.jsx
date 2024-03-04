@@ -134,9 +134,9 @@ export const Auth = () => {
                 </div>
                 
                 <div className='auth-cont2'>
-                    <input ref={myRef1} placeholder='Email' className='dat-inp' type='email' onChange={(e) => setEmail(e.target.value)} />
+                    <input ref={myRef1} placeholder='Email' autocomplete="off" className='dat-inp' type='email' onChange={(e) => setEmail(e.target.value)} />
                     <div className='input-pass-cont'>
-                        <input placeholder='Password' className='dat-inp' type={!showPass ? ('password') : ('text')} onChange={(e) => setPassword(e.target.value)} /> 
+                        <input placeholder='Password' autocomplete="off" className='dat-inp' type={!showPass ? ('password') : ('text')} onChange={(e) => setPassword(e.target.value)} /> 
                         <div className='show-hide-pass-cont' onClick={() => setShowPass(!showPass)}>
                             {!showPass ? (
                                 <FaEye size={20}/>  
