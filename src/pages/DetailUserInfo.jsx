@@ -175,7 +175,7 @@ export const IndPerson = () => {
                             </div>
                         </div>
                         {listImgInUser ? (
-                           <ListOfImages listImgInUser={listImgInUser}/> 
+                           <ListOfImages listImgInUser={listImgInUser} changeButt={changeButt}/> 
                         ) : (
                             <p style={{ marginLeft: '10px' }}>No images yet</p>
                         )}

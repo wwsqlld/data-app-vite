@@ -34,7 +34,7 @@ const Navbar = () => {
     <div className='navbar'>
         <div className='logo-cont'>
             <p id='logo-txt'>Trait Cards</p>
-            <TbCards color='white' className='logo-png'/>
+            <TbCards color='black' className='logo-png'/>
         </div>
         <div className='nav-cont'>
             <Link to="/" className='nav-btn' style={{ textDecoration: 'none'}} >

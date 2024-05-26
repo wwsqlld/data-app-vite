@@ -36,7 +36,7 @@ const GetStarted = () => {
         </div>
         <div className='gt-cont-img'>
             <img 
-                src='https://idejupr.lt/img/best-gif-database-10.gif'
+                src='https://cdn.dribbble.com/users/1670352/screenshots/6769857/main-illustration-800x600.gif'
                 alt=''
                 loading="lazy"
             />

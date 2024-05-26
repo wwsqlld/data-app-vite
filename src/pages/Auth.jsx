@@ -134,7 +134,7 @@ export const Auth = () => {
                     </div>
                 </div>
                 
-                <form className='auth-cont2'>
+                <div className='auth-cont2'>
                     <input  placeholder='Email' className='dat-inp' type='text' onChange={(e) => setEmail(e.target.value)} />
                     <div className='input-pass-cont'>
                         <input placeholder='Password'  className='dat-inp' type={!showPass ? ('password') : ('text')} onChange={(e) => setPassword(e.target.value)}></input>
@@ -153,12 +153,10 @@ export const Auth = () => {
                     </div>
                     
                     <button className='sign-btn' type='submit' onClick={signInWithEmail}>Log In</button>
-                </form>
+                </div>
             </div>
             )}
         </div>
         
     )
 }
-
-

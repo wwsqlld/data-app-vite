@@ -31,6 +31,7 @@ body::-webkit-scrollbar-thumb {
     /* отступ вокруг бегунка */
 }
 
+
 .auth {
   width: 100vw;
   height: calc(100vh - 101px);
@@ -74,11 +75,12 @@ body::-webkit-scrollbar-thumb {
   padding-right: 10px;
   cursor: pointer;
   align-items: center;
-  border: 1px solid #252525;
+  border: 2px solid #939393;
 }
 
 .google-auth:hover {
-  box-shadow: 0 0 3px 4px rgba(221, 221, 221, 1);
+  transition: 0.3s ease-in;
+  border-color: #252525;
 }
 
 .auth-cont2 {
@@ -119,6 +121,7 @@ body::-webkit-scrollbar-thumb {
   user-select: none;
   
 }
+
 
 .link-btn-wr {
   font-size: 13px;
@@ -217,13 +220,12 @@ body::-webkit-scrollbar-thumb {
   line-height: normal;
   border-radius: 7px;
   cursor: pointer;
+  border: 2px solid #939393;
 }
 
 .sign-btn:hover {
   transition: 0.3s ease-in;
-  box-shadow: 0 5px 7px rgba(0, 0, 0, .2);
-  background-color: #252525;
-  color: white;
+  border-color: black;
 }
 
 .profile-page {
@@ -257,13 +259,13 @@ body::-webkit-scrollbar-thumb {
   font-weight: 800;
   border-radius: 10px;
   cursor: pointer;
+  border: 2px solid #7c7c7c;
   color: black;  
 }
 
 .logOutButt:hover {
-  background-color: #7d7d7d;
   transition: 0.4s ease;
-  color: white;
+  border-color: black;
 }
 
 
@@ -807,8 +809,8 @@ body::-webkit-scrollbar-thumb {
 .footer {
   width: 100%;
   height: 100px;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   border-top: 1px solid #dadcdc;
   display: flex;
   justify-content: space-around;
@@ -839,7 +841,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
 }
 
 .gt-cont-if p {
@@ -847,10 +849,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .get-btn-link {
-  width: 140px;
-  height: 50px;
+  width: 150px;
+  height: 55px;
   background-color: white;
-  font-size: 16px;
+  font-size: 17px;
   font-family: Raleway;
   font-style: normal;
   font-weight: 800;
@@ -858,21 +860,20 @@ body::-webkit-scrollbar-thumb {
   border-radius: 7px;
   cursor: pointer;
   display: flex;
+  gap: 5px;
   border: none;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .6);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .3);
 }
 
-.get-btn-link:hover {
-  background-color: #252525;
-  transition: 0.3s ease-in;
-  color: white;
-}
+/* .get-btn-link:hover {
+  
+} */
 
 
 .gt-cont-img {
-  min-width: 370px;
+  min-width: 400px;
   height: fit-content;
 }
 
@@ -946,7 +947,7 @@ body::-webkit-scrollbar-thumb {
     left: 0px;
     width: 100vw;
     height: 100px;
-    background-color: black;
+    background-color: white;
     display: flex;
     justify-content: space-between;
 }
@@ -954,7 +955,6 @@ body::-webkit-scrollbar-thumb {
 .logo-cont {
     width: fit-content;
     height: 100%;
-    background-color: black;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -971,7 +971,6 @@ body::-webkit-scrollbar-thumb {
 .nav-cont {
     width: fit-content;
     height: calc(100% - 40px);
-    background-color: black ;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
@@ -994,7 +993,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .nav-btn p {
-    margin: 0;
+  color: black;
+  margin: 0;
 }
 
 .nav-btn:hover {
@@ -1003,7 +1003,7 @@ body::-webkit-scrollbar-thumb {
 
 #logo-txt {
     font-size: 30px;
-    color: white;
+    color: black;
     user-select: none;
 }
 
