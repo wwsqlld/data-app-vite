@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {useCookies} from 'react-cookie';
 import { BsList } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
 import { TbCards } from "react-icons/tb";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { CSSTransition } from 'react-transition-group';
 
 
 const Navbar = () => {
@@ -13,25 +13,68 @@ const Navbar = () => {
 
     const [cookies] = useCookies(["access_token"]);
 
-    const [openMenu, setOpenMenu] = useState(false);
-    const [closeButt, setCloseButt] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-    const nodeRef = useRef(null);
 
-    const changeVar = () => {
-        setOpenMenu(!openMenu)
-        setCloseButt(!closeButt)
+  
+  const menuVars = {
+    initial: {
+      x: window.innerWidth,
+    },
+    animate: {
+      x: 0,
+      transition: {
+        duration: 1.1,
+      }
+    },
+    exit: {
+      x: window.innerWidth,
+      transition: {
+        duration: 0.7,
+      }
     }
+  }
 
-    const changeVatButt = () => {
-        setOpenMenu(false)
-        setCloseButt(false)
-    }
+
+  const handleClick = () => {
+    setIsOpen(!isOpen)
+  }
 
 
 
   return (
     <div className='navbar'>
+        <AnimatePresence>
+        {isOpen && (
+          <motion.div
+         variants={menuVars}
+         initial="initial"
+         animate="animate"
+         exit="exit"
+         className='nav-cont-adap'
+         >
+          <div className='adap-list'>
+            <NavLink to="/" onClick={() => handleClick()} className='nav-btn' style={{ textDecoration: 'none'}} >
+                {cookies.access_token ? (<p>Cards</p>) : (<p>Home</p>)}
+            </NavLink>
+            {cookies.access_token ? 
+            <NavLink to="/create" onClick={() => handleClick()} className='nav-btn' style={{ textDecoration: 'none'}} >
+                <p>Create</p>
+            </NavLink>
+            : 
+             <></>
+            }
+
+            <NavLink to="/auth" onClick={() => handleClick()} className='nav-btn' style={{ textDecoration: 'none'}} >
+                {cookies.access_token ? (<p>Account</p>) : (<p>Sign In</p>)}
+            </NavLink>
+          </div>
+        </motion.div>
+      )}
+      </AnimatePresence>
+
+
+
         <div className='logo-cont'>
             <p id='logo-txt'>Trait Cards</p>
             <TbCards color='black' className='logo-png'/>
@@ -47,35 +90,15 @@ const Navbar = () => {
              : 
              <></>
              }
-            
             <Link to="/auth" className='nav-btn' style={{ textDecoration: 'none'}} >
                 {cookies.access_token ? (<p>Account</p>) : (<p>Sign In</p>)}
-            </Link>
-            {closeButt ? (
-                <MdOutlineClose id='closeButton' onClick={() => changeVar()}/>
-            ) : (
-                <BsList id='listOpButton' onClick={() => setOpenMenu(!openMenu)}/>
-            )}
-            
+            </Link>  
         </div>
-        {/* <CSSTransition 
-        in={openMenu}
-        nodeRef={nodeRef}
-        timeout={300}
-        classNames="nav-open-menu"
-        unmountOnExit
-        // onEnter={() => setShowButton(false)}
-        // onExited={() => setShowButton(true)}
-        >
-           <div className='nav-open-menu'>
-                <Link to="/" className='nav-btn-menu' style={{ textDecoration: 'none'}} onClick={() => changeVatButt()} ><p>Home</p></Link>
-                <Link to="/create" className='nav-btn-menu' style={{ textDecoration: 'none'}} onClick={() => changeVatButt()}><p>Create Data</p></Link>
-                <Link to="/auth" className='nav-btn-menu' style={{ textDecoration: 'none'}} onClick={() => changeVatButt()} >
-                    {cookies.access_token ? (<p>Account</p>) : (<p>Sign In</p>)}
-                </Link>          
-            </div> 
-            
-        </CSSTransition> */}
+        {!isOpen ? (
+            <BsList className='nav-list' size={40} onClick={() => handleClick()} /> 
+            ) : (
+            <MdOutlineClose className='nav-list' size={40} onClick={() => handleClick()}/>
+        )}
     </div>
   )
 }

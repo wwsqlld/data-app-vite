@@ -55,6 +55,17 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
+.sign-in-title {
+  margin: 20px 0px 10px 0px;
+  font-size: 32px;
+}
+
+#create-new-acc-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  margin-top: 15px;
+}
+
 .auth-cont1 {
   width: 100%;
   height: 80px;
@@ -836,7 +847,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gt-cont-if {
-  width: 100%;
+  width: 400px;
   height: fit-content;
   display: flex;
   justify-content: flex-start;
@@ -904,33 +915,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-@media screen and (max-width: 700px) {
 
-  .google-auth p {
-    font-size: 15px;
-  }
-
-  .auth-cont2 p {
-    font-size: 15px;
-  }
-
-  .home-container {
-    width: 80vw;
-    height: fit-content;
-  }
-
-  .txt-data-user {
-    font-size: 15px;
-  }
-
-  .profile-img {
-    width: 70px;
-    height: 70px;
-  }
-
-
-
-}
 
 
 
@@ -950,7 +935,38 @@ body::-webkit-scrollbar-thumb {
     background-color: white;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
+
+.nav-cont-adap {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;                                      ;
+  color: black;
+  gap: 10px;
+  background-color: white;
+  z-index: 56;
+  padding: 80px 0px 0px 30px;
+  
+}
+
+.adap-list {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 57;
+  gap: 25px;
+  margin-left: 10px;
+}
+
+
 
 .logo-cont {
     width: fit-content;
@@ -974,7 +990,6 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    padding-top: 40px;
     margin-right: 20px;
 }
 
@@ -987,9 +1002,10 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     margin-left: 5px;
     width: 130px;
-    height: 100%;
-    color: white;
+    height: fit-content;
+    color: black;
     font-size: 17px;
+    padding: 15px 0px 15px 0px;
 }
 
 .nav-btn p {
@@ -1055,6 +1071,10 @@ body::-webkit-scrollbar-thumb {
     transition: opacity 300ms, transform 300ms;
 }
 
+.nav-list {
+  display: none;
+}
+
 
 
 
@@ -1080,21 +1100,189 @@ body::-webkit-scrollbar-thumb {
     display: none;    
 }
 
-@media screen and (max-width: 700px) {
-    #listOpButton {
-        display: block;
-    }
+@media screen and (max-width: 1000px) {
 
-    #closeButton {
-        display: block;
-    }
+  .nav-btn {
+    font-size: 19px;
+  }
 
-    .nav-btn {
-        display: none;
-    }
+  .auth-container {
+    width: 360px;
+  }
+
+  .get-started-container {
+    width: fit-content;
+    justify-content: center;
+  }
+
+  .gt-cont-if {
+    width: 270px;
+  }
+
+  .gt-cont-if p {
+    font-size: 25px;
+  }
+
+  .gt-cont-img {
+    max-width: 350px;
+  }
+
+  .get-btn-link {
+    width: 140px;
+    height: 45px;
+    font-size: 14px;
+  }
+
+
+
+}
+
+
+@media screen and (max-width: 740px) {
+
+  .home-container {
+    width: 80vw;
+    height: fit-content;
+  }
+
+  .footer p {
+    font-size: 14px;
+  }
+
+  #logo-txt {
+    font-size: 27px
+  }
+
+  .logo-png {
+    width: 35px;
+    height: 35px;
+  }
+
+
+  #listOpButton {
+    display: block;
+  }
+
+  #closeButton {
+    display: block;
+  }
+
+  .nav-cont {
+    display: none;
+  }
+
+  .nav-cont-adap {
+    display: flex;
+  }
+
+  .nav-list {
+    display:flex;
+    margin-right: 15px;
+    z-index: 100;
+  }
+
+  .nav-btn {
+    font-size: 21px;
+    align-items: flex-start;
+    padding: 5px 5px 5px 5px;
+    width: fit-content;
+  }
+
+
+
+  .auth-container {
+    width: 340px;
+  }
+
+  .sign-in-title {
+    font-size: 26px;
+  }
+
+  .google-auth {
+    height: fit-content;
+    padding: 6px 8px 7px 8px;
+  }
+
+  .google-auth svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .dat-inp {
+    width: 290px;
+  }
+
+  .sign-btn {
+    width: 100px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  #create-new-acc-title {
+    font-size: 27px;
+  }
+
+
+
+
+
+
+
+    
 
   }
 
+  @media screen and (max-width: 550px) {
+
+  
+
+  #logo-txt {
+    font-size: 25px
+  }
+  
+  .logo-png {
+    width: 30px;
+    height: 30px;
+  }
+
+
+  .auth-container {
+    width: 300px;
+  }
+
+  .sign-in-title {
+    font-size: 23px;
+  }
+
+  .google-auth {
+    padding: 6px 8px 7px 8px;
+  }
+
+  .google-auth svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .dat-inp {
+    width: 275px;
+  }
+
+  .sign-btn {
+    width: 95px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  #create-new-acc-title {
+    font-size: 23px;
+  }
+
+
+
+  }
+  @media screen and (max-width: 450px) {
+
+  }
 
 
 

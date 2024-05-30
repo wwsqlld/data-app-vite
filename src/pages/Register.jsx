@@ -209,7 +209,7 @@ export const Register = () => {
 
             <div className='auth-container'>
                 
-                <h1 style={{ marginBottom: '50px' }}>Create New Account</h1>
+                <p id='create-new-acc-title'>Create New Account</p>
                 <div className='auth-cont2'>
                     <div className='inp-container'>
                         <div className='simulat-cont'></div>

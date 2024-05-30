@@ -20,7 +20,7 @@ function App() {
       <Route path='/create' element={<CreateData />} />
       <Route path='/auth' element={<Auth  />} />
       <Route path='/register' element={<Register  />} />
-      <Route path='/person/:id' element={ <IndPerson /> } /> */
+      <Route path='/person/:id' element={ <IndPerson /> } /> 
     </Routes>
     <Footer />
     </>

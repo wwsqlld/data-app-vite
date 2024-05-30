@@ -126,8 +126,7 @@ export const Auth = () => {
             ) : (
 
             <div className='auth-container'>
-                <h1 style={{ margin: '20px 0px 10px 0px' }}>Sign In</h1>
-                
+                <p className='sign-in-title'>Sign In</p>
                 <div className='auth-cont1'>
                     <div className='google-auth' onClick={signInWithGoogle}>
                         <FcGoogle size='40px' style={{ marginTop: '4px' }} />
@@ -135,9 +134,9 @@ export const Auth = () => {
                 </div>
                 
                 <div className='auth-cont2'>
-                    <input  placeholder='Email' className='dat-inp' type='text' onChange={(e) => setEmail(e.target.value)} />
+                    <input  placeholder='Email' className='dat-inp' type='text' onChange={(e) => setEmail(e.target.value)} autofocus />
                     <div className='input-pass-cont'>
-                        <input placeholder='Password'  className='dat-inp' type={!showPass ? ('password') : ('text')} onChange={(e) => setPassword(e.target.value)}></input>
+                        <input placeholder='Password'  className='dat-inp' type={!showPass ? ('password') : ('text')} onChange={(e) => setPassword(e.target.value)} autofocus/>
                         <div className='show-hide-pass-cont' onClick={() => setShowPass(!showPass)}>
                             {!showPass ? (
                                 <FaEye size={20}/>  
@@ -152,7 +151,7 @@ export const Auth = () => {
                         <Link to='/register' className='link-btn-wr' >Register</Link> 
                     </div>
                     
-                    <button className='sign-btn' type='submit' onClick={signInWithEmail}>Log In</button>
+                    <button className='sign-btn' onClick={signInWithEmail}>Log In</button>
                 </div>
             </div>
             )}

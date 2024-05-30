@@ -14,9 +14,8 @@ const ProfilePage = () => {
     const [dataAH, setDataAH] = useState();
     const [dataEP, setDataEP] = useState();
 
-    const [profileAsi, setProfileAsi] = useState({
-        displayName: '',
-    });
+    const [displayName, setDisplayName] = useState();
+
 
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem('data'));
@@ -26,20 +25,19 @@ const ProfilePage = () => {
             await getDocs(query(profileRef, where("email", "==", `${storedDataEP.email}`)))
             .then((response) => {
                 const dataRN = response.docs.map((doc) => (doc.data()))
-                setProfileAsi({
-                    displayName: dataRN[0].displayName,
-                })
+                localStorage.setItem('displayName', dataRN[0].displayName);
+                setDisplayName(dataRN[0].displayName) 
             })
         }
 
         if (storedDataEP) {
             getProfile()
+            setDataEP(storedDataEP);
+            
+        } else {
+          setDataAH(storedData);  
         }
-        
-
-        setDataAH(storedData);
-        setDataEP(storedDataEP);
-    },[profileRef]);
+    },[]);
 
 
 
@@ -61,7 +59,7 @@ const ProfilePage = () => {
         if (dataAH) {
            return (
             <>
-                <img src={dataAH.photoURL} alt="" style={{width:"100px", height:"100px"}}/>
+                <img src={dataAH.photoURL} alt="" width="100px" height="100px"/>
                 <p>Name: {dataAH.displayName}</p>
                 <p>Email: {dataAH.email}</p>
                 <button className='logOutButt' onClick={logOut}>Log Out</button>
@@ -72,7 +70,7 @@ const ProfilePage = () => {
             return (
             <>
               <RxAvatar size={100}/>
-              <p>Display Name: {profileAsi.displayName}</p>
+              <p>Name: {localStorage.getItem('displayName') || displayName}</p>
               <p>Email: {dataEP.email}</p>
               <button className='logOutButt' onClick={logOut}>Log Out</button> 
             </> 
