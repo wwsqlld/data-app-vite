@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {useCookies} from 'react-cookie';
 import { BsList } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
@@ -14,6 +14,8 @@ const Navbar = () => {
     const [cookies] = useCookies(["access_token"]);
 
     const [isOpen, setIsOpen] = useState(false);
+
+    const navigate = useNavigate();
 
 
   
@@ -75,7 +77,7 @@ const Navbar = () => {
 
 
 
-        <div className='logo-cont'>
+        <div className='logo-cont' onClick={(e) => navigate('/')}>
             <p id='logo-txt'>Trait Cards</p>
             <TbCards color='black' className='logo-png'/>
         </div>

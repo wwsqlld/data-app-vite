@@ -147,7 +147,7 @@ export const CreateData = () => {
 
       <div className='create-data-container'>
         <div className='title-dat-top'>
-          <h1>Fill the Form</h1>
+          <p>Fill the Form</p>
         </div>
         
 
@@ -166,9 +166,12 @@ export const CreateData = () => {
         <div className='data-cont-small'>
           <textarea placeholder='Description' id='data-area' name='description' onChange={(handleChange)}></textarea>
         </div>
-        <div className='data-cont-small'>
-          <label for="data-files" style={{ marginBottom: '5px' }}>Images:</label>
+        <div className='data-cont-files-info'>
+          <div>
+          <label htmlFor="data-files" style={{ marginBottom: '5px' }}>Images:</label>
           <input id='data-files' type='file' multiple onChange={(handleChange2)}></input>
+          </div>
+          
           <p>A maximum of 5 files can be uploaded at a time.</p>
           
         </div>

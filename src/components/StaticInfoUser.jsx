@@ -59,29 +59,29 @@ export const StaticInfoUser = (props) => {
         <div className='home-container' key={props.id}>
             <div className='home-cont-small-1'>
                 <Link to={`/person/${props.id}`} style={{ textDecoration: 'none'}} >
-                    {uniqueArray.length === 0 ? (
-                        <div className='profile-img' style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                            <AiOutlineUser size={100} color="black"/>
+                    <div className='container-for-info-and-img'>
+                        {uniqueArray.length === 0 ? (
+                            <div className='profile-img' style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}>
+                                <AiOutlineUser size={100} color="black"/>
+                            </div>
+                        ) : (
+                        <div className='profile-img'>
+                            <img src={uniqueArray[0]} width="200px" alt=''/>     
+                        </div>     
+                        )}  
+                        <div className='profile-data'>
+                            <p className='txt-data-user'>Full Name: {props.fullName}</p>
+                            <p className='txt-data-user'>Country: {props.country}</p>
+                            <p className='txt-data-user'>Date of Birthday: {props.dateOfBirth}</p>
+                            <p className='txt-data-user'>Phone Number: {props.phone}</p>
                         </div>
-                    ) : (
-                    <div className='profile-img'>
-                        <img src={uniqueArray[0]} width="200px" alt=''/>     
-                    </div>     
-                    )}  
-                </Link>
-                <Link to={`/person/${props.id}`} style={{ textDecoration: 'none'}} >
-                    <div className='profile-data'>
-                        <p className='txt-data-user'>Full Name: {props.fullName}</p>
-                        <p className='txt-data-user'>Country: {props.country}</p>
-                        <p className='txt-data-user'>Date of Birthday: {props.dateOfBirth}</p>
-                        <p className='txt-data-user'>Phone Number: {props.phone}</p>
                     </div>
+                    
                 </Link>
-
                 <div className='book-marks-container'>
                         <div className='bk-cont'>
                             {ifBooked ? (

@@ -70,7 +70,6 @@ export const Auth = () => {
         try {
            const result = await signInWithPopup(auth, provider);
            setCookies("access_token", result.user.uid, { maxAge: 86400 });
-           console.log(result.user)
            const dataLg = {
             displayName: result.user.displayName,
             email: result.user.email,
@@ -134,9 +133,9 @@ export const Auth = () => {
                 </div>
                 
                 <div className='auth-cont2'>
-                    <input  placeholder='Email' className='dat-inp' type='text' onChange={(e) => setEmail(e.target.value)} autofocus />
+                    <input  placeholder='Email' className='dat-inp' type='text' onChange={(e) => setEmail(e.target.value)} autoFocus />
                     <div className='input-pass-cont'>
-                        <input placeholder='Password'  className='dat-inp' type={!showPass ? ('password') : ('text')} onChange={(e) => setPassword(e.target.value)} autofocus/>
+                        <input placeholder='Password'  className='dat-inp' type={!showPass ? ('password') : ('text')} onChange={(e) => setPassword(e.target.value)} autoFocus/>
                         <div className='show-hide-pass-cont' onClick={() => setShowPass(!showPass)}>
                             {!showPass ? (
                                 <FaEye size={20}/>  
