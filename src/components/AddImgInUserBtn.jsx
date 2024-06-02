@@ -46,7 +46,7 @@ const AddImgInUserBtn = (props) => {
       await updateDoc(imgListRef, {
         images: newArrwidthNewElem()
       }).then(() => {
-        console.log("Ну вроде получилось!")
+        console.log("Successful")
       })
 
 
@@ -98,16 +98,7 @@ const AddImgInUserBtn = (props) => {
     <>
       {selectFiles ? (
 
-        <div className='change-img-cont-non'>
-          <div className='imit-add-img-btn'>
-          <FcPlus size={30} onClick={handleContainerClick}/>
-           <input
-            type="file"
-            ref={fileInputRef}
-            style={{ display: 'none' }}
-            onChange={handleFileChange}
-            multiple />
-          </div>
+        <div className='change-img-cont'>
           <div className='imit-add-img-btn' onClick={addImageInListUser}>
             <FcAdvance size={30}/> 
           </div>
