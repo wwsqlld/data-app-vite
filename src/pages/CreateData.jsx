@@ -37,7 +37,8 @@ export const CreateData = () => {
     description: null,
     owner: cookies.access_token,
     images: null,
-    bookmark: false
+    bookmark: false,
+    profileImg: null
   });
 
   // хуки для изображений
@@ -46,6 +47,9 @@ export const CreateData = () => {
   const [imageUpload3, setImageUpload3] = useState(null);
   const [imageUpload4, setImageUpload4] = useState(null);
   const [imageUpload5, setImageUpload5] = useState(null);
+
+
+  const [profileImg, setProfileImg] = useState(null);
 
 
 
@@ -75,15 +79,20 @@ export const CreateData = () => {
         const imageRef5 = ref(storage, `${cookies.access_token}/${imageUpload5.name}`);
         await uploadBytes(imageRef5, imageUpload5);
       }
-      scrollToTop()
-      showError("Data has been created", true)
+      if (profileImg) {
+        const profileImg = ref(storage, `${cookies.access_token}/${profileImg.name}`);
+        await uploadBytes(profileImg, profileImg);
+      }
       } catch (err) {
         console.log(err)
-      } 
+      } finally {
+        scrollToTop()
+        showError("Data has been created", true)
+      }
     } else {
       showError("Name and country are required!", false)
       scrollToTop()
-    }
+    } 
     
   }
 
@@ -103,10 +112,16 @@ export const CreateData = () => {
     setImageUpload4(event.target.files[3])
     setImageUpload5(event.target.files[4])
 
-    const dataNa = Array.from(event.target.files).map((file) => file.name)
-    
-    setDataOfUser({...dataOfUser, images: dataNa })  
+    const profileImg = event.target.files[0];
+    setProfileImg(profileImg)
+    const profileName = profileImg.name
+
+    const dataNames = Array.from(event.target.files).map((file) => file.name)
+    setDataOfUser({...dataOfUser, images: dataNames, profileImg: profileName })  
   };
+
+
+
 
 
   // функция для отображения ошибки

@@ -6,41 +6,32 @@ import { ref, getDownloadURL } from "firebase/storage";
 function ProfileImg(props) {
 
 
-    const [listIm1, setListIm1] = useState([]);
+    const [profileImage, setProfileImage] = useState([]);
 
-    const [listImgProp] = useState(props.listImgInUser);
+    const [imgProp] = useState(props.profileImg);
 
     const [cookies] = useCookies(["access_token"]);
 
     useEffect(() => {
-
-        for (let i = 0; i < listImgProp.length; i++) {
-            const listRef1 = ref(storage, `${cookies.access_token}/${listImgProp[i]}`);
+            const listRef1 = ref(storage, `${cookies.access_token}/${imgProp}`);
             try {
                 getDownloadURL(listRef1).then((url) => {
-                    setListIm1((prev) => [...prev, url])
+                    setProfileImage(url)
                 });
             } catch (err) {
                 console.log(err)
             }  
-        }
-
     }, []);
-
-
-    const uniqueArray = listIm1.filter((item, index) => {
-        return listIm1.indexOf(item) === index
-    });
 
     
 
     return (
         <>
-            {uniqueArray.length === 0 ? (
+            {profileImage.length === 0 ? (
             <div className='profile-img'></div>
                 ) : (
                 <div className='profile-img'>
-                    <img src={uniqueArray[0]} width="100%" alt=''/>
+                    <img src={profileImage} width="100%" alt=''/>
                 </div>   
             )}                    
                                     

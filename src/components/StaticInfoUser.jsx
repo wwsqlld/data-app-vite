@@ -16,10 +16,15 @@ export const StaticInfoUser = (props) => {
 
     const [listImgInUser] = useState(props.images);
 
+    const [profileImgProps] = useState(props.profileImg);
+    const [profileImg, setProfileImg] = useState(null);
+
     const [listIm1, setListIm1] = useState([]);
 
     const [ifBooked] = useState(props.bookmark);
 
+
+    // Менять закладку
     const changeBookPoint = async () => {
         const descRef = doc(db, "people", `${props.id}`);
          try {
@@ -34,6 +39,7 @@ export const StaticInfoUser = (props) => {
     
 
     useEffect(() => {
+        console.log(listImgInUser)
         if (listImgInUser) {
             for (let i = 0; i < listImgInUser.length; i++) {
                 const listRef1 = ref(storage, `${cookies.access_token}/${listImgInUser[i]}`);
@@ -42,11 +48,18 @@ export const StaticInfoUser = (props) => {
                 }) 
             }    
         }
-    },[cookies.access_token, listImgInUser]);
 
-    const uniqueArray = listIm1.filter((item, index) => {
-        return listIm1.indexOf(item) === index
-    });
+        if (profileImgProps) {
+            const proImgRef = ref(storage, `${cookies.access_token}/${profileImgProps}`);
+            getDownloadURL(proImgRef).then((url) => {
+                setProfileImg(url)
+            })        
+        }
+    },[]);
+
+    // const uniqueArray = listIm1.filter((item, index) => {
+    //     return listIm1.indexOf(item) === index
+    // });
 
 
 
@@ -60,7 +73,7 @@ export const StaticInfoUser = (props) => {
             <div className='home-cont-small-1'>
                 <Link to={`/person/${props.id}`} style={{ textDecoration: 'none'}} >
                     <div className='container-for-info-and-img'>
-                        {uniqueArray.length === 0 ? (
+                        {listIm1.length === 0 ? (
                             <div className='profile-img' style={{
                                 display: 'flex',
                                 justifyContent: 'center',
@@ -70,7 +83,7 @@ export const StaticInfoUser = (props) => {
                             </div>
                         ) : (
                         <div className='profile-img'>
-                            <img src={uniqueArray[0]} width="200px" alt=''/>     
+                            <img src={profileImg} width="200px" alt=''/>     
                         </div>     
                         )}  
                         <div className='profile-data'>

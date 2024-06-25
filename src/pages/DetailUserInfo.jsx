@@ -28,6 +28,8 @@ export const IndPerson = () => {
 
     const [listImgInUser, setListImgInUser] = useState();
 
+    const [profileImg, setProfileImg] = useState(null);
+
     const [areaData, setAreaData] = useState('')
     const [changeButt, setChangeButt] = useState(false);
     
@@ -111,6 +113,9 @@ export const IndPerson = () => {
                     if (response.data().images) {
                         setListImgInUser(response.data().images);
                     }
+                    if (response.data().profileImg) {
+                        setProfileImg(response.data().profileImg);
+                    }
                     setDataListOfUser(response.data());
                             
                 })
@@ -135,8 +140,10 @@ export const IndPerson = () => {
       }
                     <div className='home-container' key={dataListOfUser.id} >
                         <div className='home-cont-small-1-1'>
-                            {listImgInUser ? (
-                                <ProfileImg listImgInUser={listImgInUser} />
+                            {profileImg ? ( 
+                                <>
+                                    <ProfileImg profileImg={profileImg} />
+                                </>
                             ) : (
                             <div className='profile-img' style={{
                                 display: 'flex',

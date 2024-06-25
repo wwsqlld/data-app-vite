@@ -25,6 +25,7 @@ export const Home = () => {
         const getPeople = async () => {
             await getDocs(query(peopleCollectionRef, where("owner", "==", `${cookies.access_token}`))).then((response) => {
                 const dataList = response.docs.map((doc) => ({...doc.data(), id: doc.id }));
+                console.log(response.docs)
                 const dataWith = dataList.filter(doc => doc.bookmark === true);
                 const dataWithout = dataList.filter(doc => doc.bookmark === false);
                 setDataWithMarkList(dataWith)
@@ -60,6 +61,7 @@ export const Home = () => {
                     description={data.description} 
                     images={data.images}
                     bookmark={data.bookmark}
+                    profileImg={data.profileImg}
                     />    
                     )
                 })}
@@ -76,6 +78,7 @@ export const Home = () => {
                     description={data.description} 
                     images={data.images}
                     bookmark={data.bookmark}
+                    profileImg={data.profileImg}
                     />    
                 )
             })}  
